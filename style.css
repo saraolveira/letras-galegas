@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    outline: none;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    scroll-snap-align: start;
+    background: linear-gradient(120deg, #a1c4fd, #81cde4, #9EB1F8);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    position: relative;
+}
+
+section:nth-child(even) {
+    background: white;
+    color: #a1c4fd;
+}
+
+section:nth-child(even) p {
+    background:  linear-gradient(120deg, #a1c4fd, #81cde4, #9EB1F8);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+section p {
+    padding: 5vw;
+    width: 67vw;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 7.5em;
+    font-weight: 900;
+}
+
+.year {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    font-weight: 700;
+    position: absolute;
+    bottom: 5vh;
+    left: 5vw;
+    text-align: left;
+}
+
+@media (max-width: 767px) {
+    section {
+        align-items: flex-start;
+        flex-direction: column;
+        gap:75vh;
+    }
+
+    section p {
+        width: 100vw;
+        font-size: 7vw;
+    }
+
+    .year {
+        position: relative;
+        text-align: center;
+        font-size: 7vw;
+        width: 100vw;
+        left:0;
+        font-weight: 900;
+    }
+
+    .webgl {
+        left: 50%;
+        transform: translateX(-50%)
+    }
+}
